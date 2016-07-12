@@ -14,7 +14,9 @@
     ],
     "require": {
         "php": ">=5.4",
-        "helionogueir/typeboxing": ">=1.0.0"
+        "helionogueir/typeboxing": ">=1.0.0",
+        "helionogueir/languagepack": ">=1.0.0",
+        "helionogueir/foldercreator": ">=1.0.0"
     },
     "authors": [
         {

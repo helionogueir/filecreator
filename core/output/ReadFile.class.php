@@ -1,6 +1,6 @@
 <?php
 
-namespace helionogueir\filecreator\file;
+namespace helionogueir\filecreator\output;
 
 use helionogueir\typeBoxing\type\String;
 
