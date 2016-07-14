@@ -1,22 +1,17 @@
 {
     "name": "helionogueir/filecreator",
-    "type": "tool",
-    "description": "FileCreator - Library to create files",
+    "description": "FileCreator - Library tools for files",
     "homepage": "http://www.qalt-ed.com.br/",
     "license": "MIT",
-    "keywords": [
-        "tool",
-        "PHP",
-        "File",
-        "Memory",
-        "Buffer",
-        "PrintFile"
-    ],
+    "keywords": ["library", "tool", "php", "file", "upload", "replace"],
     "require": {
-        "php": ">=5.4",
+        "php": ">=5.6",
         "helionogueir/typeboxing": ">=1.0.0",
         "helionogueir/languagepack": ">=1.0.0",
         "helionogueir/foldercreator": ">=1.0.0"
+    },
+    "autoload": {
+        "files": ["core/autoload/register.inc"]
     },
     "authors": [
         {
@@ -24,8 +19,5 @@
             "email": "helio.nogueir@gmail.com",
             "role": "Arquitect, Tester, Analyst and Developer"
         }
-    ],
-    "autoload": {
-        "files": ["core/autoload/register.inc"]
-    }
+    ]
 }

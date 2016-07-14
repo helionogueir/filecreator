@@ -2,30 +2,35 @@
 
 namespace helionogueir\filecreator\output;
 
+use helionogueir\languagepack\Lang;
 use helionogueir\typeBoxing\type\String;
 
 /**
  * Read file:
- * - Check if file exists;
- * - Flush the file;
+ * - Displays the file;
  *
  * @author Helio Nogueira <helio.nogueir@gmail.com>
  * @version v1.0.0
  */
 class ReadFile {
 
+  /**
+   * Contruct the basic of class
+   * @return null
+   */
   public function __construct() {
-    return false;
+    Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
+    return null;
   }
 
   /**
-   * Make file:
-   * - Make the file;
+   * Read file:
+   * - Read file and print
    * 
-   * @param helionogueir\typeBoxing\type\String $filename Filename
-   * @return null Without return
+   * @param helionogueir\typeBoxing\type\String $filename File name to be read
+   * @return null
    */
-  public final function make(String $filename) {
+  public function read(String $filename) {
     if (!$filename->isEmpty() && file_exists($filename) && is_file($filename)) {
       $pattern = "/^(.*)(\/|\\\\)(.*)\.(.*)$/i";
       $name = new String(preg_replace($pattern, '$3', $filename));
@@ -41,18 +46,22 @@ class ReadFile {
       flush();
       readfile($filename);
     }
+    // Exception
+    else {
+      throw new Exception(Lang::get(new String('filecreator:upload:readfile:read'), new String('filecreator')));
+    }
     return null;
   }
 
   /**
-   * File rules:
-   * - Put rules;
+   * Rank the format of file:
+   * - See the extention and rank the format to be displayed
    * 
-   * @param string $name Name of file
-   * @param string $extention Extention of filename
-   * @return null Without return
+   * @param String $name Name of file
+   * @param String $extention Extention initials
+   * @return null
    */
-  private final function putTypeRules(String $name, String $extention) {
+  private function putTypeRules(String $name, String $extention) {
     switch ($extention) {
       case 'ods':
       case 'odt':
