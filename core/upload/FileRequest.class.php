@@ -27,7 +27,6 @@ class FileRequest {
    * @return null
    */
   public function __construct() {
-    Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
     return null;
   }
 
@@ -57,7 +56,8 @@ class FileRequest {
     }
     // Exception
     if (empty($filepath)) {
-      throw new Exception(Lang::get(new String('filecreator:upload:save:notfound'), new String('filecreator')));
+      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
+      throw new Exception(Lang::get(new String('filecreator:upload:save:notfound'), new String('helionogueir/filecreator')));
     }
     return new String($filepath);
   }
@@ -95,6 +95,7 @@ class FileRequest {
     }
     // Exception
     if (empty($fileDestination)) {
+      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
       throw new Exception(Lang::get(new String('filecreator:upload:save:moveTempStorage'), new String('filecreator')));
     }
     return new String($fileDestination);
@@ -134,6 +135,7 @@ class FileRequest {
     }
     // Exception
     if (empty($name)) {
+      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
       throw new Exception(Lang::get(new String('filecreator:upload:save:createFilename'), new String('filecreator')));
     }
     return new String($name);

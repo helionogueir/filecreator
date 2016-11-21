@@ -12,7 +12,7 @@ namespace helionogueir\filecreator\autoload;
  */
 class LanguagePack {
 
-  const PACKAGE = 'filecreator';
+  const PACKAGE = 'helionogueir/filecreator';
   const PATH = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
 
   /**

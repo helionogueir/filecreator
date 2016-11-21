@@ -19,7 +19,6 @@ class ReadFile {
    * @return null
    */
   public function __construct() {
-    Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
     return null;
   }
 
@@ -31,6 +30,7 @@ class ReadFile {
    * @return null
    */
   public function read(String $filename) {
+    $auth = false;
     if (!$filename->isEmpty() && file_exists($filename) && is_file($filename)) {
       $pattern = "/^(.*)(\/|\\\\)(.*)\.(.*)$/i";
       $name = new String(preg_replace($pattern, '$3', $filename));
@@ -45,10 +45,14 @@ class ReadFile {
       ob_clean();
       flush();
       readfile($filename);
+      $auth = true;
+    } else {
+      header('HTTP/1.0 404 Not Found');
     }
     // Exception
-    else {
-      throw new Exception(Lang::get(new String('filecreator:upload:readfile:read'), new String('filecreator')));
+    if (!$auth) {
+      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
+      throw new Exception(Lang::get(new String('filecreator:upload:readfile:read'), new String('helionogueir/filecreator')));
     }
     return null;
   }
