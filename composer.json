@@ -6,7 +6,6 @@
     "keywords": ["library", "tool", "php", "file", "upload", "replace"],
     "require": {
         "php": ">=7.1",
-        "helionogueir/typeboxing": "=v1.1.0",
         "helionogueir/languagepack": "=v1.1.0",
         "helionogueir/foldercreator": "=v1.1.0"
     },

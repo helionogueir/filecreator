@@ -2,5 +2,5 @@
     "filecreator:upload:save:notfound": "Filename or Storage not found",
     "filecreator:upload:save:moveTempStorage": "Error when try move the file for storage",
     "filecreator:upload:save:createFilename": "Error when try create name for new file",
-    "filecreator:upload:readfile:read": "Error when try read the file"
+    "filecreator:upload:readfile:read": "Error when try read the file \"{data:pathname}\""
 }

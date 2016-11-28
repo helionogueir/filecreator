@@ -2,8 +2,6 @@
 
 namespace helionogueir\filecreator\tool;
 
-use helionogueir\typeBoxing\type\String;
-
 /**
  * Name generator:
  * - Generate unique name text
@@ -25,11 +23,11 @@ class NameGenarator {
    * Create name:
    * - Create unique name
    * 
-   * @return helionogueir\typeBoxing\type\String
+   * @return string
    */
   public static final function uniqueName() {
     sleep(1);
-    return new String(Date('Ymdhis') . md5(mt_rand(strtotime('-20 years'), time())));
+    return Date('Ymdhis') . md5(mt_rand(strtotime('-20 years'), time()));
   }
 
 }

@@ -4,9 +4,6 @@ namespace helionogueir\filecreator\upload;
 
 use Exception;
 use helionogueir\languagepack\Lang;
-use helionogueir\typeBoxing\type\String;
-use helionogueir\typeBoxing\type\Boolean;
-use helionogueir\typeBoxing\type\Integer;
 use helionogueir\foldercreator\folder\Create;
 use helionogueir\filecreator\tool\NameGenarator;
 
@@ -34,14 +31,14 @@ class FileRequest {
    * Mount file in stotage:
    * - Receive parameters and create file in storage
    * 
-   * @param helionogueir\typeBoxing\type\String $filename Name of file in $_FILE
-   * @param helionogueir\typeBoxing\type\String $directoryDestiny
+   * @param string $filename Name of file in $_FILE
+   * @param string $directoryDestiny
    * @param Array $extentions
-   * @return helionogueir\typeBoxing\type\String Path the file storage
+   * @return string Path the file storage
    */
-  public function upload(String $filename, String $directoryDestiny, Array $extentions = Array()) {
+  public function upload(string $filename, string $directoryDestiny, Array $extentions = Array()) {
     $filepath = null;
-    if (!$filename->isEmpty() && !$directoryDestiny->isEmpty()) {
+    if (!empty($filename) && !empty($directoryDestiny)) {
       $this->filename = $filename;
       $this->directoryDestiny = $directoryDestiny;
       if (count($extentions)) {
@@ -56,33 +53,33 @@ class FileRequest {
     }
     // Exception
     if (empty($filepath)) {
-      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
-      throw new Exception(Lang::get(new String('filecreator:upload:save:notfound'), new String('helionogueir/filecreator')));
+      Lang::addRoot(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE, \helionogueir\filecreator\autoload\LanguagePack::PATH);
+      throw new Exception(Lang::get("filecreator:upload:save:notfound", 'helionogueir/filecreator'));
     }
-    return new String($filepath);
+    return $filepath;
   }
 
   /**
    * Prepara directory:
    * - Create folder of path
    * 
-   * @param helionogueir\typeBoxing\type\String $directory Path of directory
-   * @return helionogueir\typeBoxing\type\Boolean Info if path is create
+   * @param string $directory Path of directory
+   * @return bool Info if path is create
    */
-  private function prepareDirectory(String $directory) {
+  private function prepareDirectory(string $directory) {
     $dir = new Create();
-    return $dir->make($directory, new Integer($this->chmod));
+    return $dir->make($directory, $this->chmod);
   }
 
   /**
    * Move file:
    * - Move $_FILE to stotage
    * 
-   * @param helionogueir\typeBoxing\type\String $filename Name of file in $_FILE
-   * @param helionogueir\typeBoxing\type\String $directoryDestiny Path destiny of file
-   * @return helionogueir\typeBoxing\type\String Path file uploaded
+   * @param string $filename Name of file in $_FILE
+   * @param string $directoryDestiny Path destiny of file
+   * @return string Path file uploaded
    */
-  private function moveTempToStorage(String $filename, String $directoryDestiny) {
+  private function moveTempToStorage(string $filename, string $directoryDestiny) {
     $fileDestination = null;
     if (isset($_FILES["{$filename}"], $_FILES["{$filename}"]['name'], $_FILES["{$filename}"]['type'], $_FILES["{$filename}"]['tmp_name'], $_FILES["{$filename}"]['error'])) {
       if (!(bool) $_FILES["{$filename}"]['error'] && is_uploaded_file($_FILES["{$filename}"]['tmp_name'])) {
@@ -95,21 +92,21 @@ class FileRequest {
     }
     // Exception
     if (empty($fileDestination)) {
-      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
-      throw new Exception(Lang::get(new String('filecreator:upload:save:moveTempStorage'), new String('filecreator')));
+      Lang::addRoot(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE, \helionogueir\filecreator\autoload\LanguagePack::PATH);
+      throw new Exception(Lang::get("filecreator:upload:save:moveTempStorage", 'filecreator'));
     }
-    return new String($fileDestination);
+    return $fileDestination;
   }
 
   /**
    * Check extentions:
    * - Check if extention is valid for upload
    * 
-   * @param helionogueir\typeBoxing\type\String $filename Name of file in $_FILE
+   * @param string $filename Name of file in $_FILE
    * @param Array $extentions Valid extentions
-   * @return helionogueir\typeBoxing\type\Boolean Info if extetion is valid
+   * @return bool Info if extetion is valid
    */
-  private function checkExtention(String $filename, Array $extentions) {
+  private function checkExtention(string $filename, Array $extentions) {
     $checked = true;
     if (count($extentions)) {
       if (isset($_FILES["{$filename}"], $_FILES["{$filename}"]['type'])) {
@@ -117,17 +114,17 @@ class FileRequest {
         $checked = preg_match($pattern, $_FILES["{$filename}"]['type']);
       }
     }
-    return new Boolean($checked);
+    return $checked;
   }
 
   /**
    * Create name:
    * - Create name of the new file
    * 
-   * @param helionogueir\typeBoxing\type\String $filename Name of file in $_FILE
-   * @return helionogueir\typeBoxing\type\String Path with name of new file
+   * @param string $filename Name of file in $_FILE
+   * @return string Path with name of new file
    */
-  private function createFilename(String $filename) {
+  private function createFilename(string $filename) {
     $name = null;
     if (isset($_FILES["{$filename}"], $_FILES["{$filename}"]['name']) && preg_match($this->pattern, $_FILES["{$filename}"]['name'])) {
       $extention = preg_replace($this->pattern, '$2', $_FILES["{$filename}"]['name']);
@@ -135,10 +132,10 @@ class FileRequest {
     }
     // Exception
     if (empty($name)) {
-      Lang::addRoot(new String(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE), new String(\helionogueir\filecreator\autoload\LanguagePack::PATH));
-      throw new Exception(Lang::get(new String('filecreator:upload:save:createFilename'), new String('filecreator')));
+      Lang::addRoot(\helionogueir\filecreator\autoload\LanguagePack::PACKAGE, \helionogueir\filecreator\autoload\LanguagePack::PATH);
+      throw new Exception(Lang::get("filecreator:upload:save:createFilename", 'filecreator'));
     }
-    return new String($name);
+    return $name;
   }
 
 }
