@@ -1,7 +1,7 @@
 # [File Creator](https://github.com/helionogueir/filecreator)
 
 A simple library for read, create, manipulate files.
-
+======
 ## Installation
 
 Composer (https://getcomposer.org/) and (https://packagist.org/)
@@ -12,6 +12,7 @@ Manual
 ```php
 require_once ("./filecreator/core/autoload/register.inc");
 ```
+------
 ## Usage
 
 ### ReplaceText
