@@ -22,23 +22,23 @@ use helionogueir\filecreator\data\ReplaceText;
 $text = "Point {data:v1} to {data:v2}";
 echo (new ReplaceText())->replace($text, $data);
 ```
-
-**ReadFile**
+------
+### ReadFile
 
 Read file by path name
 ```php
 use helionogueir\filecreator\output\ReadFile;
 (new ReadFile())->read(__FILE__, true);
 ```
-
-**NameGenarator**
+------
+### NameGenarator
 
 Create unique random namespace
 ```php
 use helionogueir\filecreator\tool\NameGenarator;
 echo NameGenarator::uniqueName();
 ```
-
+------
 ## TDD (Test Driven Development)
 
 PHPUnit (https://phpunit.de/)
