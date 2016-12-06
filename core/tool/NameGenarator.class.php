@@ -3,29 +3,19 @@
 namespace helionogueir\filecreator\tool;
 
 /**
- * Name generator:
  * - Generate unique name text
- *
  * @author Helio Nogueira <helio.nogueir@gmail.com>
- * @version v1.0.0
+ * @version v1.1.0
  */
-class NameGenarator {
+abstract class NameGenarator {
 
   /**
-   * Block construct the class, because this class is static
-   * @return false
-   */
-  public function __construct() {
-    return false;
-  }
-
-  /**
-   * Create name:
    * - Create unique name
-   * 
-   * @return string
+   * @param string $pathname Pathname by file to be read
+   * @param bool $download Force download info
+   * @return null
    */
-  public static final function uniqueName() {
+  public static final function uniqueName(): string {
     sleep(1);
     return Date('Ymdhis') . md5(mt_rand(strtotime('-20 years'), time()));
   }

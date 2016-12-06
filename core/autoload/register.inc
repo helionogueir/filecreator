@@ -1,13 +1,11 @@
 <?php
 
 /**
- * Autoload:
- * - Pattern of autoload of tool
- *
+ * - Autoload pattern
  * @author Helio Nogueira <helio.nogueir@gmail.com>
- * @version v1.0.0
+ * @version v1.1.0
  */
-spl_autoload_register(function($classname) {
+spl_autoload_register(function(string $classname) {
   $pattern = "/^(helionogueir\\\\filecreator)\\\\(.*)$/";
   if (preg_match($pattern, $classname)) {
     $classname = preg_replace($pattern, '$2', $classname);
@@ -16,5 +14,5 @@ spl_autoload_register(function($classname) {
       require_once($filename);
     }
   }
-  return null;
+  return true;
 });
