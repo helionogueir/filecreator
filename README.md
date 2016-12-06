@@ -14,7 +14,7 @@ require_once ("./filecreator/core/autoload/register.inc");
 ```
 ## Usage
 
-**ReplaceText**
+### ReplaceText
 
 Replace TAGs in file
 ```php
