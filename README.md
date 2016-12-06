@@ -15,7 +15,7 @@ require_once ("./filecreator/core/autoload/register.inc");
 ------
 ## Usage
 
-### ReplaceText
+### helionogueir\filecreator\data\ReplaceText
 
 Replace TAGs in file
 ```php
@@ -24,7 +24,7 @@ $text = "Point {data:v1} to {data:v2}";
 echo (new ReplaceText())->replace($text, $data);
 ```
 ------
-### ReadFile
+### helionogueir\filecreator\output\ReadFile
 
 Read file by path name
 ```php
@@ -32,7 +32,7 @@ use helionogueir\filecreator\output\ReadFile;
 (new ReadFile())->read(__FILE__, true);
 ```
 ------
-### NameGenarator
+### helionogueir\filecreator\tool\NameGenarator
 
 Create unique random namespace
 ```php
