@@ -1,7 +1,7 @@
 # [File Creator](https://github.com/helionogueir/filecreator)
 
 A simple library for read, create, manipulate files.
-------
+
 ## Installation
 
 Composer (https://getcomposer.org/) and (https://packagist.org/)
