@@ -8,10 +8,6 @@ Composer (https://getcomposer.org/) and (https://packagist.org/)
 ```sh
 composer require helionogueir/filecreator
 ```
-Manual
-```php
-require_once ("./filecreator/core/autoload/register.inc");
-```
 ------
 ## Usage
 

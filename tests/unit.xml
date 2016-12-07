@@ -8,7 +8,7 @@
     xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.2/phpunit.xsd"
     colors="always"
     verbose="true"
-    bootstrap="../core/autoload/register.inc">
+    bootstrap="../../../autoload.php">
     <testsuites>
         <testsuite name="Unit Testing">
             <directory suffix="Test.class.php" phpVersion="7.1" phpVersionOperator=">=">./unit</directory>
