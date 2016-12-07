@@ -1,7 +1,5 @@
 <?php
 
-namespace helionogueir\filecreator\tests\unit\tool;
-
 use PHPUnit\Framework\TestCase;
 use helionogueir\filecreator\tool\NameGenarator;
 

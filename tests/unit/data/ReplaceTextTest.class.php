@@ -1,7 +1,5 @@
 <?php
 
-namespace helionogueir\filecreator\tests\unit\data;
-
 use PHPUnit\Framework\TestCase;
 use helionogueir\filecreator\data\ReplaceText;
 

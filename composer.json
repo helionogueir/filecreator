@@ -1,6 +1,6 @@
 {
     "name": "helionogueir/filecreator",
-    "description": "FileCreator - Library tools for files",
+    "description": "A simple library for read, create, manipulate files",
     "homepage": "https://github.com/helionogueir",
     "license": "MIT",
     "keywords": ["library", "tool", "file", "replace", "reader", "namespace"],
