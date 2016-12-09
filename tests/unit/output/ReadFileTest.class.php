@@ -1,11 +1,12 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use helionogueir\filecreator\output\ReadFile;
 
 class ReadFileTest extends TestCase {
 
   public function testRead() {
-    /* Can't be test this method (helionogueir\filecreator\output\ReadFile) */
+    $this->assertInstanceOf("helionogueir\\filecreator\\output\\ReadFile", (new ReadFile()));
   }
 
 }

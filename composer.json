@@ -6,8 +6,8 @@
     "keywords": ["library", "tool", "file", "replace", "reader", "namespace"],
     "require": {
         "php": ">=7.0",
-        "helionogueir/languagepack": "=v1.1.0",
-        "helionogueir/foldercreator": "=v1.1.0"
+        "helionogueir/languagepack": "v1.1.0",
+        "helionogueir/foldercreator": "v1.1.0"
     },
     "autoload": {
         "files": ["core/autoload/register.inc"]
